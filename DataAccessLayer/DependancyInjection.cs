@@ -7,7 +7,7 @@ public static class DependancyInjection
 {
     public static IServiceCollection AddDataAccessLayer(this IServiceCollection services)
     {
-        
+        //services.AddDbContext<ApplicationDbContext>();
         return services;
     }
 }
