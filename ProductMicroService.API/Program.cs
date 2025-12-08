@@ -4,7 +4,7 @@ using eCommerce.ProductMicroService.API.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 //ADD DAL BAL
-builder.Services.AddDataAccessLayer();
+builder.Services.AddDataAccessLayer(builder.Configuration);
 builder.Services.AddBuinessLogicLayer();
 
 builder.Services.AddControllers();  
