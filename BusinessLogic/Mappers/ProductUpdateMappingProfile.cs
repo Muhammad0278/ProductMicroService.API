@@ -1,0 +1,20 @@
+﻿using BusinessLogicLayer.DTO;
+using eCommerce.DataAccessLayer.Entities;
+using AutoMapper;
+
+
+namespace eCommerce.BusinessLogicLayer.Mappers;
+
+public class ProductUpdateMappingProfile : Profile
+{
+    public ProductUpdateMappingProfile()
+    {
+    CreateMap<ProductUpdateRequest, Product>()
+   .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.ProductName))
+   .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
+   .ForMember(dest => dest.UnitPrice, opt => opt.MapFrom(src => src.UnitPrice))
+   .ForMember(dest => dest.QuantityInStock, opt => opt.MapFrom(src => src.QuantityInStock))
+   .ForMember(dest => dest.ProductID, opt => opt.MapFrom(src => src.ProductID))
+   ;
+    }
+}

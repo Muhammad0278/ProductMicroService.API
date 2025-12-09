@@ -1,7 +1,5 @@
-﻿
-
-using DataAccessLayer.Entities;
-using DataAccessLayer.RepositryContracts;
+﻿using eCommerce.DataAccessLayer.Entities;
+using eCommerce.DataAccessLayer.RepositryContracts;
 using eCommerce.DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
