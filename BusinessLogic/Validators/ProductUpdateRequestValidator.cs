@@ -1,4 +1,4 @@
-﻿using BusinessLogicLayer.DTO;
+﻿using eCommerce.BusinessLogicLayer.DTO;
 using FluentValidation;
 
 

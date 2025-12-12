@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using BusinessLogicLayer.DTO;
 using eCommerce.BusinessLogicLayer.DTO;
 using eCommerce.DataAccessLayer.Entities;
-using FluentValidation;
 
 
 namespace eCommerce.BusinessLogicLayer.Mappers;
