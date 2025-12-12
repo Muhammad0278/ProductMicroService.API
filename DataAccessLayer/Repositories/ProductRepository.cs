@@ -1,5 +1,5 @@
 ﻿using eCommerce.DataAccessLayer.Entities;
-using eCommerce.DataAccessLayer.RepositryContracts;
+using eCommerce.DataAccessLayer.RepositoryContracts;
 using eCommerce.DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -7,10 +7,10 @@ using System.Linq.Expressions;
 namespace eCommerce.DataAccessLayer.Repositories
 {
   
-    public class ProductsReporsitory : IProductReporsitory
+    public class ProductRepository : IProductRepository
     {
         private readonly ApplicationDbContext _dbContext;
-        public ProductsReporsitory(ApplicationDbContext dbContext)
+        public ProductRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

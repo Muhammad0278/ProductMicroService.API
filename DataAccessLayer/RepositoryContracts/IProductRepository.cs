@@ -3,9 +3,9 @@
 using eCommerce.DataAccessLayer.Entities;
 using System.Linq.Expressions;
 
-namespace eCommerce.DataAccessLayer.RepositryContracts;
+namespace eCommerce.DataAccessLayer.RepositoryContracts;
 
-public interface IProductReporsitory
+public interface IProductRepository
 {
     Task<IEnumerable<Product>> GetProducts();
     Task<IEnumerable<Product?>> GetProductsByCondition(Expression<Func<Product, bool>> conditionExpression);

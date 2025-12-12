@@ -4,7 +4,7 @@ using eCommerce.BusinessLogicLayer.ServiceContracts;
 using eCommerce.BusinessLogicLayer.Validators;
 using eCommerce.DataAccessLayer.Entities;
 using eCommerce.DataAccessLayer.Repositories;
-using eCommerce.DataAccessLayer.RepositryContracts;
+using eCommerce.DataAccessLayer.RepositoryContracts;
 using FluentValidation;
 using FluentValidation.Results;
 using System.Linq.Expressions;
@@ -18,12 +18,12 @@ public class ProductsService : IProductsService
     private readonly IValidator<ProductAddRequest> _ProductAddRequestValidator;
     private readonly IValidator<ProductUpdateRequest> _productUpdateRequestValidator;
     private readonly IMapper _mapper;
-    private readonly IProductReporsitory _productReporsitory;
+    private readonly IProductRepository _productReporsitory;
 
     public ProductsService(IValidator<ProductAddRequest> ProductAddRequestValidator,
         IValidator<ProductUpdateRequest> productUpdateRequestValidator,
         IMapper mapper,
-        IProductReporsitory productReporsitory)
+        IProductRepository productReporsitory)
     {
         _ProductAddRequestValidator = ProductAddRequestValidator;
         _productUpdateRequestValidator = productUpdateRequestValidator;
