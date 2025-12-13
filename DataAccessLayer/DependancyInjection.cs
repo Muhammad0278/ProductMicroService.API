@@ -14,7 +14,7 @@ public static class DependancyInjection
     public static IServiceCollection AddDataAccessLayer(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ApplicationDbContext>(option => {
-            option.UseMySQL(configuration.GetConnectionString("DefaulConnection")!);
+            option.UseMySQL(configuration.GetConnectionString("DefaultConnection")!);
             });
         services.AddScoped<IProductRepository, ProductRepository>();
         return services;

@@ -26,22 +26,22 @@ public static class ProductAPIEndpoint
             return product is not null ? Results.Ok(product) : Results.NotFound();
         });
 
-        //Get /api/products/search/product-id/000000-000000
-        app.MapGet("/api/products/search/{SearchString}", async (string SearchString, IProductsService productService) =>
-        {
-            List<ProductResponse?> productbyName = await productService.GetProductsByCondition(temp => temp.ProductName != null 
-            && temp.ProductName.Contains(SearchString, StringComparison.OrdinalIgnoreCase));
-            return productbyName is not null ? Results.Ok(productbyName) : Results.NotFound();
-        });
+        ////Get /api/products/search/000000-000000
+        //app.MapGet("/api/products/search/{SearchString}", async (string SearchString, IProductsService productService) =>
+        //{
+        //    List<ProductResponse?> productbyName = await productService.GetProductsByCondition(temp => temp.ProductName != null 
+        //    && temp.ProductName.Contains(SearchString, StringComparison.OrdinalIgnoreCase));
+        //    return productbyName is not null ? Results.Ok(productbyName) : Results.NotFound();
+        //});
 
         //Get /api/products/search/000000-000000
         app.MapGet("/api/products/search/{SearchString}", async (string SearchString, IProductsService productService) =>
         {
             List<ProductResponse?> productbyName = await productService.GetProductsByCondition(temp => temp.ProductName != null
-          && temp.ProductName.Contains(SearchString, StringComparison.OrdinalIgnoreCase));
+          && temp.ProductName.ToLower().Contains(SearchString));
 
             List<ProductResponse?> productbyCategory = await productService.GetProductsByCondition(temp => temp.Category != null
-            && temp.Category.Contains(SearchString, StringComparison.OrdinalIgnoreCase));
+            && temp.Category.ToLower().Contains(SearchString));
            
             var products = productbyName.Union(productbyCategory).ToList();
 
