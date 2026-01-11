@@ -13,9 +13,16 @@ public static class DependancyInjection
 {
     public static IServiceCollection AddDataAccessLayer(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ApplicationDbContext>(option => {
-            option.UseMySQL(configuration.GetConnectionString("DefaultConnection")!);
-            });
+
+        string TempconnectionString = configuration.GetConnectionString("DefaultConnection")!;
+
+      string connnctionstring =  TempconnectionString.Replace("$MYSQL_HOST", Environment.GetEnvironmentVariable("MYSQL_HOST"))
+              .Replace("$MYSQL_PASSWORD",Environment.GetEnvironmentVariable("MYSQL_PASSWORD"));
+            
+        services.AddDbContext<ApplicationDbContext>(option =>
+        {
+            option.UseMySQL(connnctionstring);
+        });
         services.AddScoped<IProductRepository, ProductRepository>();
         return services;
     }
